@@ -1,0 +1,92 @@
+/* === RESETTI, eli perusasetus kaikille elementeille === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Selaimen vieritys liukuu pehmeästi */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* BODY: koko sivun perusasetukset */
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fontit */
+    background-color: var(--bg-light); /* Taustaväri tulee värimuuttujasta */
+    color: var(--text-dark); /* Tekstin väri */
+    line-height: 1.6; /* Riviväli */
+    font-size: 16px; /* Peruskoko */
+  }
+  
+  /* LINKIT ilman alleviivausta */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  /* Kuvat skaalautuvat oikein */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Peruskontti sivun sisällölle */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* Otsikoiden tyyli */
+  h1, h2, h3, h4 {
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
+  
+  /* Kappaleiden väli */
+  p {
+    margin-bottom: 1em;
+  }
+  
+  /* === SIVUN VÄRIMAATTI: käytetään CSS-muuttujia === */
+  :root {
+    --brand-yellow: #f9c900;     /* Kiewit-keltainen */
+    --brand-gray: #2a2a2a;       /* Tummanharmaa */
+    --bg-light: #f7f7f7;         /* Vaalea taustaväri */
+    --text-dark: #1a1a1a;        /* Tekstin väri */
+    --accent-blue: #004466;      /* Korosteväri esim. painikkeisiin */
+  }
+  
+  /* === HERO-osio = iso kuva, tekstit päällä === */
+  .hero {
+    background-image: url('Favicon/hero-image.jpg'); /* TÄMÄ kuva puuttuu todennäköisesti! */
+    background-size: cover; /* Kuva kattaa koko alueen */
+    background-position: center; /* Kuva keskittyy keskelle */
+    color: white; /* Tekstin väri */
+    padding: 8rem 2rem; /* Sisennykset ylös-alas ja sivuille */
+    text-align: center; /* Tekstit keskelle */
+  }
+  
+  /* HERO-sisältölaatikko */
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Tumma läpinäkyvä laatikko */
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+  
+  /* Painikkeen tyyli */
+  .cta-button {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--brand-yellow);
+    color: var(--brand-gray);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
