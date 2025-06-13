@@ -1,32 +1,38 @@
-<!doctype html> <!-- Määrittää HTML5-version käytön -->
-
-<html lang="fi"> <!-- Sivun kieli on suomi -->
-
+<!doctype html>
+<html lang="fi">
 <head>
-  <meta charset="utf-8"> <!-- Käytetään UTF-8 merkistöä, tärkeä ääkkösille -->
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Skaalaa sivun mobiililaitteille oikein -->
+  <title>Alakuijala</title>
 
-  <!-- Faviconit selaimeen -->
+  <!-- Faviconit -->
   <link rel="icon" href="Favicon/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
   <link rel="manifest" href="Favicon/site.webmanifest">
 
-  <title>Alakuijala</title> <!-- Sivun otsikko, näkyy selaimen välilehdessä -->
-
-  <link rel="stylesheet" href="styles.css"> <!-- Linkitetään ulkoinen CSS-tiedosto -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
 </head>
 
 <body>
+  <header class="site-header" id="header-placeholder"></header>
 
-  <!-- HERO = etusivun pääosio, isolla kuvalla ja tekstillä -->
+  <nav class="top-nav">
+    <ul>
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+  </nav>
+
   <section class="hero">
-    <div class="hero-container">
-      <h1>Rakennetaan yhteydet – maasta taivaaseen</h1>
-      <p>Valokuitu-, maasähkö- ja ilmakaapelityöt Pohjois-Suomessa yli 30 vuoden kokemuksella.</p>
-      <a href="#palvelut" class="cta-button">Tutustu palveluihin</a> <!-- Painike -->
+    <div class="hero-overlay">
+      <div class="hero-container">
+        <h1>Rakennetaan yhteydet – maasta taivaaseen</h1>
+        <p>Valokuitu-, maasähkö- ja ilmakaapelityöt Pohjois-Suomessa yli 30 vuoden kokemuksella.</p>
+        <a href="#palvelut" class="cta-button">Tutustu palveluihin</a>
+      </div>
     </div>
   </section>
-
 </body>
 </html>
