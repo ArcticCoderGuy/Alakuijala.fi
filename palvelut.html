@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palvelut – Alakuijala Oy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0e1b2b;
+      color: white;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background-image: url('./img/päiväkuva.png');
+      background-size: 86% auto;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2%;
+      background-repeat: no-repeat;
+    }
+
+    .hero-box {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(8px);
+      border-radius: 1rem;
+      padding: 2rem;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    .hero-box h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-box p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .services {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      padding: 2rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .back-button {
+      display: inline-block;
+      background-color: #facc15;
+      color: black;
+      padding: 1rem 2rem;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      margin: 2rem auto;
+      display: block;
+      width: fit-content;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #fbbf24;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .hero-box h1 {
+        font-size: 1.6rem;
+      }
+      .hero-box p {
+        font-size: 0.95rem;
+      }
+      .service-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img/Alakuijala-logo.png" alt="Alakuijala logo" style="height: 70px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" />
+  </header>
+
+  <section class="hero">
+    <div class="hero-box">
+      <h1>Laadukasta maanrakennusta luotettavasti</h1>
+      <p>
+        Olemme hinta-laatusuhteelta vahva toimija, jolla on lukuisia tyytyväisiä asiakkaita niin Suomessa kuin Ruotsissakin.
+        Maanrakennus on murroksessa, sillä nykyisin isoja kokonaisuuksia pilkotaan ja jaetaan useiden toimijoiden kesken.
+        Me tarjoamme avaimet käteen -ratkaisun työn määrälaskennasta loppuluovutukseen asti – tehokkaasti, mutta laadukkaasti.
+      </p>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="service-card">
+      <h2>Valokuituverkkojen asennus</h2>
+      <p>Kaivuutyöt, kaapelointi ja mittausvalmiit toimitukset – turvallisesti ja ajallaan.</p>
+    </div>
+    <div class="service-card">
+      <h2>Maasähkö- ja ilmajohtotyöt</h2>
+      <p>Vastuullinen sähkön jakelun rakentaminen, aina sähköyhtiöiden vaatimusten mukaisesti.</p>
+    </div>
+    <div class="service-card">
+      <h2>Maanrakennus ja kaivutyöt</h2>
+      <p>Kaikki kaivinkonepalvelut, perustuskaivannot, sadevesijärjestelmät ja pohjatyöt.</p>
+    </div>
+    <div class="service-card">
+      <h2>Kokonaisurakointi</h2>
+      <p>Työn suunnittelu, laskenta ja toteutus yhdestä paikasta – "kerralla kunnolla" -periaatteella.</p>
+    </div>
+  </section>
+
+  <a href="index.html" class="back-button">Takaisin etusivulle</a>
+
+</body>
+</html>
