@@ -17,7 +17,7 @@
       }
       .hero {
         min-height: 100vh;
-        background-image: url('./img/kuva3.png');
+        background-image: url('./img/kuva7.png');
         background-size: cover;
         background-position: right bottom;
         display: flex;
@@ -49,11 +49,14 @@
         font-weight: bold;
         border-radius: 0.5rem;
         cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.2s ease, transform 0.2s ease;
         color: #000;
       }
       .hero-box button:hover {
         background-color: #fbbf24;
+        transform: scale(1.05);
+
+
       }
       header {
         position: absolute;
@@ -63,8 +66,8 @@
       }
       nav {
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        top: 3rem;
+        right: 3rem;
         z-index: 50;
         display: flex;
         gap: 1rem;
@@ -77,21 +80,23 @@
         font-weight: bold;
         text-decoration: none;
         box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-        transition: background 0.2s ease;
+        transition: background-color 0.2s ease, transform 0.2s ease;
       }
       .nav-btn:hover {
         background-color: #fbbf24;
+        transform: scale(1.05); /* Kevyt laajennus hoverissa */
       }
     </style>
   </head>
   <body>
     <header>
-      <img src="img/Alakuijala-logo.png" alt="Alakuijala-logo" style="height: 70px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" />
+      <img src="img/Alakuijala-logo.png" alt="Alakuijala-logo" style="height: 74px; border-radius: 8px; box-shadow: 0 4px 1px; margin-top: 25px; rgba(0,0,0,0.4);" />
     </header>
     <nav>
-      <a href="#palvelut" class="nav-btn">Palveluhj</a>
+      <a href="#palvelut" class="nav-btn">Palvelut</a>
       <a href="#meista" class="nav-btn">Meistä</a>
       <a href="#yhteystiedot" class="nav-btn">Yhteystiedot</a>
+      
     </nav>
     <section class="hero">
       <div class="hero-box">
