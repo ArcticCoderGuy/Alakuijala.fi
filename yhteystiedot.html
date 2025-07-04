@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yhteystiedot – Alakuijala Oy</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -16,7 +17,7 @@
     header {
       text-align: center;
       margin-top: 2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     header img {
@@ -26,12 +27,11 @@
     }
 
     nav {
-      position: absolute;
-      top: 3rem;
-      right: 3rem;
-      z-index: 50;
       display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
       gap: 1rem;
+      margin: 1rem 2rem;
     }
 
     .nav-btn {
@@ -52,13 +52,15 @@
 
     .hero {
       min-height: 50vh;
-      background-image: url('./img/Yhteystiedot.png');
+      background-image: url('./img/kuva10.png');
       background-size: 86% auto;
       background-position: center;
       background-repeat: no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 2rem;
+      text-align: center;
     }
 
     .hero h1 {
@@ -107,6 +109,7 @@
       border-radius: 0.5rem;
       text-decoration: none;
       transition: background-color 0.2s ease, transform 0.2s ease;
+      width: fit-content;
     }
 
     .back-button:hover {
@@ -116,9 +119,8 @@
 
     @media (max-width: 768px) {
       nav {
-        top: 1.5rem;
-        right: 1rem;
-        gap: 0.5rem;
+        justify-content: center;
+        margin: 1rem auto;
       }
 
       .hero h1 {

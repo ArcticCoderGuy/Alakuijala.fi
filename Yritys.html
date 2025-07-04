@@ -2,10 +2,15 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yritys – Alakuijala Oy</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -14,8 +19,15 @@
     }
 
     header {
-      padding: 2rem;
       text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    header img {
+      height: 70px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
 
     nav {
@@ -45,13 +57,14 @@
 
     .hero {
       min-height: 50vh;
-      background-image: url('./img/iso kuva.png'); /* Vaihda haluamasi hero-kuva tähän */
-      background-size: 86% auto;
+      background-image: url('./img/iso kuva.png');
+      background-size: 70% auto;
       background-position: center;
       background-repeat: no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 2%;
     }
 
     .hero h1 {
@@ -59,6 +72,7 @@
       background: rgba(0, 0, 0, 0.4);
       padding: 1rem 2rem;
       border-radius: 1rem;
+      text-align: center;
     }
 
     .content {
@@ -80,8 +94,21 @@
     }
 
     @media (max-width: 768px) {
+      nav {
+        position: static;
+        justify-content: center;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        background-size: cover;
+        padding: 3rem 1rem;
+      }
+
       .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         padding: 1rem;
       }
 
@@ -92,8 +119,9 @@
   </style>
 </head>
 <body>
+
   <header>
-    <img src="img/Alakuijala-logo.png" alt="Alakuijala logo" style="height: 70px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" />
+    <img src="img/Alakuijala-logo.png" alt="Alakuijala logo" />
   </header>
 
   <nav>
@@ -122,5 +150,6 @@
       Kanssamme on turvallista ja helppoa toimia.
     </p>
   </section>
+
 </body>
 </html>

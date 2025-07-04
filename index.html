@@ -1,110 +1,183 @@
 <!DOCTYPE html>
 <html lang="fi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alakuijala Oy</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Inter', sans-serif;
-        background-color: #0e1b2b;
-        color: white;
-      }
-      .hero {
-        min-height: 100vh;
-        background-image: url('./img/kuva7.png');
-        background-size: cover;
-        background-position: right bottom;
-        display: flex;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alakuijala Oy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0e1b2b;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    header img {
+      height: 74px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    nav {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      z-index: 50;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-btn {
+      background-color: #facc15;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: #fbbf24;
+      transform: scale(1.05);
+    }
+
+    .hero {
+      min-height: 100vh;
+      background-image: url('./img/kuva7.png');
+      background-size: cover;
+      background-position: right bottom;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .hero-box {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(6px);
+      border-radius: 1rem;
+      padding: 3rem;
+      max-width: 700px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .hero-box h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-box p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-box button {
+      background-color: #facc15;
+      border: none;
+      padding: 1.5rem 3rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      color: #000;
+    }
+
+    .hero-box button:hover {
+      background-color: #fbbf24;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: static;
         justify-content: center;
-        align-items: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-box {
         padding: 2rem;
       }
-      .hero-box {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(6px);
-        border-radius: 1rem;
-        padding: 3rem;
-        max-width: 700px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        text-align: center;
-      }
+
       .hero-box h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: 1.8rem;
       }
+
       .hero-box p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
+        font-size: 1rem;
       }
+
       .hero-box button {
-        background-color: #facc15;
-        border: none;
-        padding: 2.5rem 3.5rem;
-        font-size: 1.55rem;
-        font-weight: 1000;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: background-color 0.2s ease, transform 0.2s ease;
-        color: #000;      }
-      .hero-box button:hover {
-        background-color: #fbbf24;
-        transform: scale(1.05);
+        font-size: 1rem;
+        padding: 1.2rem 2rem;
+      }
 
-
-      }
-      header {
-  position: relative;
-  text-align: center;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  z-index: 50;
-}
-      nav {
-        position: absolute;
-        top: 3rem;
-        right: 3rem;
-        z-index: 50;
-        display: flex;
-        gap: 1rem;
-      }
-      .nav-btn {
-        background-color: #facc15;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        color: #111;
-        font-weight: bold;
-        text-decoration: none;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-        transition: background-color 0.2s ease, transform 0.2s ease;
-      }
-      .nav-btn:hover {
-        background-color: #fbbf24;
-        transform: scale(1.05); /* Kevyt laajennus hoverissa */
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <img src="img/Alakuijala-logo.png" alt="Alakuijala-logo" style="height: 74px; border-radius: 8px; box-shadow: 0 4px 1px; margin-top: 25px; rgba(0,0,0,0.4);" />
-    </header>
-    <nav>
-      <a href="palvelut.html" class="nav-btn">Palvelut</a>
-      <a href="Yritys.html" class="nav-btn">Meistä</a>
-      <a href="yhteystiedot.html" class="nav-btn">Yhteystiedot</a>
       
-    </nav>
-    <section class="hero">
-      <div class="hero-box">
-        <h1>Rakennetaan yhteydet – maasta taivaaseen</h1>
-        <p>Valokuitu-, maasähkö- ja ilmakaapelityöt Pohjois-Suomessa yli 50 vuoden kokemuksella.</p>
-        <button>Tutustu palveluihin</button>
-      </div>
-    </section>
-  </body>
+    }
+        
+
+    .hero-box button {
+      font-size: 1rem;
+      padding: 1.2rem 2rem;
+    }
+
+  
+
+  .hero-btn {
+    background-color: #facc15;
+    padding: 1.5rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-radius: 0.5rem;
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-btn:hover {
+    background-color: #fbbf24;
+    transform: scale(1.05);
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img/Alakuijala-logo.png" alt="Alakuijala-logo" />
+  </header>
+
+  <nav>
+    <a href="palvelut.html" class="nav-btn">Palvelut</a>
+    <a href="yritys.html" class="nav-btn">Meistä</a>
+    <a href="yhteystiedot.html" class="nav-btn">Yhteystiedot</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-box">
+      <h1>Rakennetaan yhteydet – maasta taivaaseen</h1>
+      <p>Valokuitu-, maasähkö- ja ilmakaapelityöt Pohjois-Suomessa yli 50 vuoden kokemuksella.</p>
+      <a href="palvelut.html" class="hero-btn">Tutustu palveluihin</a>
+
+    </div>
+  </section>
+
+</body>
 </html>
