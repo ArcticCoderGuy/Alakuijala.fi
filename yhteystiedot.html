@@ -3,13 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Palvelut – Alakuijala Oy</title>
+  <title>Yhteystiedot – Alakuijala Oy</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -55,82 +51,62 @@
     }
 
     .hero {
-      min-height: 100vh;
-      background-image: url('./img/päiväkuva.png');
-      background-size: 70% auto;
+      min-height: 50vh;
+      background-image: url('./img/Yhteystiedot.png');
+      background-size: 86% auto;
       background-position: center;
       background-repeat: no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2%;
     }
 
-    .hero-box {
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(8px);
+    .hero h1 {
+      font-size: 2.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1rem 2rem;
       border-radius: 1rem;
-      padding: 2rem;
-      max-width: 900px;
-      width: 100%;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      text-align: center;
     }
 
-    .hero-box h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-box p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
-    .services {
+    .contact-grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       padding: 2rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .service-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
-      padding: 2rem;
+    .contact-card {
+      background: rgba(255, 255, 255, 0.06);
       backdrop-filter: blur(6px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
-    .service-card:hover {
-      transform: translateY(-5px);
+    .contact-card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #facc15;
     }
 
-    .service-card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .service-card p {
+    .contact-card p {
       font-size: 1rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      white-space: pre-line;
     }
 
     .back-button {
       display: block;
       margin: 3rem auto;
       background-color: #facc15;
-      color: black;
+      color: #111;
       padding: 1rem 2rem;
       font-weight: bold;
       border-radius: 0.5rem;
       text-decoration: none;
       transition: background-color 0.2s ease, transform 0.2s ease;
-      width: fit-content;
     }
 
     .back-button:hover {
@@ -145,22 +121,18 @@
         gap: 0.5rem;
       }
 
-      .hero-box h1 {
-        font-size: 1.6rem;
+      .hero h1 {
+        font-size: 1.8rem;
+        padding: 1rem;
       }
 
-      .hero-box p {
-        font-size: 0.95rem;
-      }
-
-      .service-card {
+      .contact-card {
         padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
     <img src="img/Alakuijala-logo.png" alt="Alakuijala logo" />
   </header>
@@ -173,38 +145,67 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-box">
-      <h1>Laadukasta maanrakennusta luotettavasti</h1>
+    <h1>Ota meihin yhteyttä</h1>
+  </section>
+
+  <section class="contact-grid">
+    <div class="contact-card">
+      <h2>Y-tunnus & Osoite</h2>
       <p>
-        Olemme hinta-laatusuhteelta vahva toimija, jolla on lukuisia tyytyväisiä asiakkaita niin Suomessa kuin Ruotsissa.
-        Maanrakennus on murroksessa, sillä nykyisin isoja kokonaisuuksia pilkotaan ja jaetaan useiden toimijoiden kesken.
-        Me tarjoamme avaimet käteen -ratkaisun työn määrälaskennasta loppuluovutukseen asti – tehokkaasti, mutta laadukkaasti.
+        Y-tunnus: 0653692-2
+        VAT: FI06536922
+        Raumontie 430, 95460 Tornio
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h2>Yleiset yhteystiedot</h2>
+      <p>
+        Puh: +358 40 5200 726
+        Sähköposti: tarjoukset@alakuijala.fi
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h2>Jouko Alakuijala</h2>
+      <p>
+        RR-, teräspaalutus ja pohjatyöt
+        +358 40 520 0726
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h2>Janne Koskela</h2>
+      <p>
+        Suuntaporaus
+        +358 40 765 4420
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h2>Anita Kunnari</h2>
+      <p>
+        Taloushallinto / Toimistopalvelut
+        +358 40 482 0360
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h2>Laskutus</h2>
+      <p>
+        Paperilaskut:
+        Alakuijala Oy, 06536922
+        PL 100, 80020 Kollektor Scan
+
+        Verkkolasku:
+        003706536922
+        Välittäjätunnus: 003721291126
+        Välittäjä: Maventa
+
+        PDF-laskut:
+        06536922@scan.netvisor.fi
       </p>
     </div>
   </section>
-
-  <section class="services">
-    <div class="service-card">
-      <h2>Valokuituverkkojen asennus</h2>
-      <p>Kaivuutyöt, kaapelointi ja mittausvalmiit toimitukset – turvallisesti ja ajallaan.</p>
-    </div>
-
-    <div class="service-card">
-      <h2>Suuntaporaus</h2>
-      <p>Vaativat ali- tai ohiporaukset kohteissa, joissa kaivaminen ei ole mahdollista tai toivottavaa.</p>
-    </div>
-
-    <div class="service-card">
-      <h2>Maanrakennus ja kaivutyöt</h2>
-      <p>Kaikki kaivinkonepalvelut, perustuskaivannot, sadevesijärjestelmät ja pohjatyöt.</p>
-    </div>
-
-    <div class="service-card">
-      <h2>Kokonaisurakointi</h2>
-      <p>Työn suunnittelu, laskenta ja toteutus yhdestä paikasta – "kerralla kunnolla" -periaatteella.</p>
-    </div>
-  </section>
-
-  <a href="index.html" class="back-button">Takaisin etusivulle</a>
 </body>
 </html>
