@@ -1,213 +1,861 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0e1b2b" />
-  <title>Palvelut – Alakuijala Oy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alakuijala Oy palvelut - Valokuituverkkojen asennus, suuntaporaus, maanrakennus ja kokonaisurakointi Pohjois-Suomessa">
+  <meta name="keywords" content="valokuitu, maasähkö, suuntaporaus, maanrakennus, kokonaisurakointi, Pohjois-Suomi">
+  <title>Palvelut - Alakuijala Oy</title>
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+  <meta name="theme-color" content="#0e1b2b">
+  
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
-    * {
+    /* CSS Custom Properties for easy theming */
+    :root {
+      --primary-color: #facc15;
+      --primary-hover: #fbbf24;
+      --primary-dark: #f59e0b;
+      --background-dark: #0f172a;
+      --background-card: #1e293b;
+      --text-primary: #ffffff;
+      --text-secondary: #cbd5e1;
+      --text-dark: #0f172a;
+      --border-radius: 12px;
+      --border-radius-lg: 20px;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width: 1200px;
+    }
+
+    /* Reset and base styles */
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
     }
 
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0e1b2b;
-      color: white;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--background-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    header {
-      text-align: center;
-      margin-top: 2rem;
-      margin-bottom: 1.5rem;
+    /* Container utility */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1rem;
     }
 
-    header img {
-      height: 70px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
-
-    nav {
+    /* Skip link for accessibility */
+    .skip-link {
       position: absolute;
-      top: 3rem;
-      right: 3rem;
-      z-index: 50;
-      display: flex;
-      gap: 1rem;
-    }
-
-    .nav-btn {
-      background-color: #facc15;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      color: #111;
-      font-weight: bold;
+      top: -40px;
+      left: 6px;
+      background: var(--primary-color);
+      color: var(--text-dark);
+      padding: 8px;
+      border-radius: 4px;
       text-decoration: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      z-index: 1000;
+      font-weight: 600;
     }
 
-    .nav-btn:hover {
-      background-color: #fbbf24;
-      transform: scale(1.05);
+    .skip-link:focus {
+      top: 6px;
     }
 
-    .hero {
-      min-height: 100vh;
-      background-image: url('./img/päiväkuva.png');
-      background-size: 70% auto;
-      background-position: center;
-      background-repeat: no-repeat;
+    /* E-office button - Desktop only */
+    .eoffice-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.7rem;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      z-index: 1000;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .eoffice-btn:hover,
+    .eoffice-btn:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    }
+
+    /* E-office mobile button */
+    .eoffice-mobile {
+      display: none;
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      white-space: nowrap;
+    }
+
+    .eoffice-mobile:hover {
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    }
+
+    /* Header styles */
+    .header {
+      position: relative;
+      padding: 1rem 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header__content {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2%;
-    }
-
-    .hero-box {
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(8px);
-      border-radius: 1rem;
-      padding: 2rem;
-      max-width: 900px;
+      position: relative;
       width: 100%;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header__logo img {
+      height: 60px;
+      width: auto;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+
+    .header__logo img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Navigation styles */
+    .nav {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      position: fixed;
+      right: 2rem;
+      top: 1rem;
+      z-index: 100;
+    }
+
+    @media (min-width: 1200px) {
+      .nav {
+        right: 3rem;
+      }
+    }
+
+    .nav__list {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav__link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary-color);
+      color: var(--text-dark);
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav__link:hover,
+    .nav__link:focus {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav__link.nav__link--active {
+      background-color: var(--primary-dark);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Mobile menu toggle */
+    .nav__toggle {
+      display: none;
+      background: var(--primary-color);
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 0.75rem;
+      cursor: pointer;
+      color: var(--text-dark);
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      z-index: 1001;
+    }
+
+    .nav__toggle:hover {
+      background: var(--primary-hover);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Hero section - Integrated with image on desktop */
+    .hero {
+      min-height: 70vh;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.3) 0%,
+        rgba(30, 41, 59, 0.15) 50%,
+        rgba(15, 23, 42, 0.25) 100%
+      ),
+      url('img/päiväkuva.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 0;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(250, 204, 21, 0.02) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Image section - Hidden on desktop, visible on mobile */
+    .image-section {
+      display: none;
+    }
+
+    .hero__content {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--border-radius-lg);
+      padding: clamp(2rem, 5vw, 3.5rem);
+      max-width: 900px;
       text-align: center;
-    }
-
-    .hero-box h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-box p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
-    .services {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      padding: 2rem;
-      max-width: 1200px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
       margin: 0 auto;
     }
 
+    .hero__title {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* Services section */
+    .services {
+      padding: 4rem 0;
+      background: var(--background-dark);
+      position: relative;
+      z-index: 2;
+    }
+
+    .services__grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 2rem;
+    }
+
     .service-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--border-radius-lg);
       padding: 2rem;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
-    .service-card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+    .service-card__icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      padding: 8px;
     }
 
-    .service-card p {
+    .service-card__icon svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--text-dark);
+    }
+
+    .service-card__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .service-card__description {
       font-size: 1rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      color: var(--text-secondary);
     }
 
-    .back-button {
-      display: block;
-      margin: 3rem auto;
-      background-color: #facc15;
-      color: black;
-      padding: 1rem 2rem;
-      font-weight: bold;
-      border-radius: 0.5rem;
+    /* Back button */
+    .back-section {
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+      color: var(--text-dark);
       text-decoration: none;
-      transition: background-color 0.2s ease, transform 0.2s ease;
-      width: fit-content;
+      border-radius: var(--border-radius);
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
     }
 
-    .back-button:hover {
-      background-color: #fbbf24;
-      transform: scale(1.05);
+    .back-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
     }
 
+    .back-btn:hover::before {
+      left: 100%;
+    }
+
+    .back-btn:hover,
+    .back-btn:focus {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(250, 204, 21, 0.3);
+    }
+
+    /* Utility classes */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive design */
     @media (max-width: 768px) {
-      nav {
-        position: static;
+      .eoffice-btn {
+        display: none;
+      }
+
+      .eoffice-mobile {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .header__content {
+        display: flex;
         justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
-        margin: 1rem auto;
+        gap: 1rem;
+        position: relative;
+        width: 100%;
       }
 
-      .hero-box h1 {
-        font-size: 1.6rem;
+      .header__logo {
+        order: 2;
       }
 
-      .hero-box p {
-        font-size: 0.95rem;
+      .nav {
+        order: 1;
+        position: static;
+        transform: none;
+        right: auto;
+        top: auto;
+        z-index: auto;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .header__logo img {
+        height: 45px;
+      }
+
+      .nav__list {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 0;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        margin-top: 0;
+      }
+
+      .nav__list.is-open {
+        display: flex;
+      }
+
+      .nav__toggle {
+        display: block;
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+      }
+
+      .nav__link {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border-radius: 0;
+        background: transparent;
+        color: var(--text-primary);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 1rem;
+      }
+
+      .nav__link:first-child {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+      }
+
+      .nav__link:last-child {
+        border-bottom: none;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+      }
+
+      .nav__link:hover,
+      .nav__link:focus,
+      .nav__link.nav__link--active {
+        background: var(--primary-color);
+        color: var(--text-dark);
+        transform: none;
+      }
+
+      .hero {
+        min-height: auto;
+        background: var(--background-dark);
+        padding: 2rem 0;
+        background-attachment: scroll;
+      }
+
+      .hero::before {
+        display: none;
+      }
+
+      .image-section {
+        display: block;
+        min-height: 40vh;
+        background-attachment: scroll;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.05) 0%,
+          rgba(30, 41, 59, 0.02) 50%,
+          rgba(15, 23, 42, 0.08) 100%
+        ),
+        url('img/päiväkuva.png');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero__content {
+        margin: 0 1rem;
+        padding: 2rem 1.5rem;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      }
+
+      .services {
+        padding: 3rem 0;
+      }
+
+      .services__grid {
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
       }
 
       .service-card {
         padding: 1.5rem;
       }
     }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 0.75rem;
+      }
+
+      .header {
+        padding: 0.75rem 0;
+      }
+
+      .header__logo img {
+        height: 40px;
+      }
+
+      .nav__toggle {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+      }
+
+      .eoffice-mobile {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+      }
+
+      .hero__content {
+        margin: 0 0.5rem;
+        padding: 1.5rem 1rem;
+      }
+
+      .service-card {
+        padding: 1.25rem;
+      }
+
+      .back-btn {
+        padding: 0.875rem 2rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      .nav,
+      .eoffice-btn,
+      .back-btn {
+        display: none;
+      }
+      
+      .hero {
+        background: none;
+        color: black;
+      }
+      
+      .hero__content,
+      .service-card {
+        background: none;
+        box-shadow: none;
+        border: 1px solid black;
+      }
+    }
   </style>
 </head>
 <body>
-
-  <header>
-    <img src="img/Alakuijala-logo.png" alt="Alakuijala logo" />
+  <a href="#main" class="skip-link">Siirry pääsisältöön</a>
+  <a href="#" class="eoffice-btn">E-Office</a>
+  
+  <header class="header">
+    <div class="container">
+      <div class="header__content">
+        <div class="header__logo">
+          <img src="img/Alakuijala-logo.png" alt="Alakuijala Oy - kotisivu" width="120" height="60">
+        </div>
+        
+        <nav class="nav" role="navigation" aria-label="Päänavigaatio">
+          <a href="#" class="eoffice-mobile">E-Office</a>
+          <button class="nav__toggle" id="nav-toggle">
+            ☰ Valikko
+          </button>
+          <ul class="nav__list" id="nav-menu" role="menubar">
+            <li role="none">
+              <a href="index.html" class="nav__link" role="menuitem">Etusivu</a>
+            </li>
+            <li role="none">
+              <a href="palvelut.html" class="nav__link nav__link--active" role="menuitem">Palvelut</a>
+            </li>
+            <li role="none">
+              <a href="yritys.html" class="nav__link" role="menuitem">Meistä</a>
+            </li>
+            <li role="none">
+              <a href="yhteystiedot.html" class="nav__link" role="menuitem">Yhteystiedot</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <a href="index.html" class="nav-btn">Etusivu</a>
-    <a href="palvelut.html" class="nav-btn">Palvelut</a>
-    <a href="yritys.html" class="nav-btn">Yritys</a>
-    <a href="yhteystiedot.html" class="nav-btn">Yhteystiedot</a>
-  </nav>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__content fade-in">
+        <h1 class="hero__title" id="hero-title">
+          Laadukasta maanrakennusta luotettavasti
+        </h1>
+        <p class="hero__subtitle">
+          Olemme hinta-laatusuhteelta vahva toimija, jolla on lukuisia tyytyväisiä asiakkaita niin Suomessa kuin Ruotsissa. 
+          Maanrakennus on murroksessa, sillä nykyisin isoja kokonaisuuksia pilkotaan ja jaetaan useiden toimijoiden kesken. 
+          Me tarjoamme avaimet käteen -ratkaisun työn määrälaskennasta loppuluovutukseen asti – tehokkaasti, mutta laadukkaasti.
+        </p>
+      </div>
+    </section>
 
-  <section class="hero">
-    <div class="hero-box">
-      <h1>Laadukasta maanrakennusta luotettavasti</h1>
-      <p>
-        Olemme hinta-laatusuhteelta vahva toimija, jolla on lukuisia tyytyväisiä asiakkaita niin Suomessa kuin Ruotsissa.
-        Maanrakennus on murroksessa, sillä nykyisin isoja kokonaisuuksia pilkotaan ja jaetaan useiden toimijoiden kesken.
-        Me tarjoamme avaimet käteen -ratkaisun työn määrälaskennasta loppuluovutukseen asti – tehokkaasti, mutta laadukkaasti.
+    <section class="image-section" aria-hidden="true">
+      <!-- Beautiful background image section -->
+    </section>
+
+    <section class="services">
+      <div class="container">
+        <div class="services__grid">
+          <div class="service-card fade-in">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M2,3H8V9H2V3M9,3H15V9H9V3M16,3H22V9H16V3M2,10H8V16H2V10M9,10H15V16H9V10M16,10H22V16H16V10M2,17H8V23H2V17M9,17H15V23H9V17M16,17H22V23H16V17Z"/>
+              </svg>
+            </div>
+            <h2 class="service-card__title">Valokuituverkkojen asennus</h2>
+            <p class="service-card__description">
+              Kaivuutyöt, kaapelointi ja mittausvalmiit toimitukset – turvallisesti ja ajallaan. 
+              Ammattitaitomme takaa laadukkaan lopputuloksen kaikissa valokuituasennuksissa.
+            </p>
+          </div>
+
+          <div class="service-card fade-in">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
+              </svg>
+            </div>
+            <h2 class="service-card__title">Suuntaporaus</h2>
+            <p class="service-card__description">
+              Vaativat ali- tai ohiporaukset kohteissa, joissa kaivaminen ei ole mahdollista tai toivottavaa. 
+              Modernit laitteet ja kokenut henkilökunta takaavat tarkan lopputuloksen.
+            </p>
+          </div>
+
+          <div class="service-card fade-in">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M19,17H22V19H19V17M19,13H22V15H19V13M19,9H22V11H19V9M19,5H22V7H19V5M17,5V19H2V5H17M15,7H4V17H15V7Z"/>
+                <path d="M6,9H13V10H6V9M6,11H13V12H6V11M6,13H10V14H6V13Z"/>
+              </svg>
+            </div>
+            <h2 class="service-card__title">Maanrakennus ja kaivutyöt</h2>
+            <p class="service-card__description">
+              Kaikki kaivinkonepalvelut, perustuskaivannot, sadevesijärjestelmät ja pohjatyöt. 
+              Kokemuksemme ja kalustomme mahdollistavat myös vaativimpien projektien toteuttamisen.
+            </p>
+          </div>
+
+          <div class="service-card fade-in">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H8L12,22L16,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M20,16H15.17L12,19.17L8.83,16H4V4H20V16M6,7H18V9H6V7M6,11H15V13H6V11Z"/>
+              </svg>
+            </div>
+            <h2 class="service-card__title">Kokonaisurakointi</h2>
+            <p class="service-card__description">
+              Työn suunnittelu, laskenta ja toteutus yhdestä paikasta – "kerralla ja kunnolla" -periaatteella. 
+              Säästät aikaa ja vaivaa, kun kaikki hoituu saman katon alta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="back-section">
+      <div class="container">
+        <a href="index.html" class="back-btn">
+          <span aria-hidden="true">←</span>
+          Takaisin etusivulle
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: rgba(15, 23, 42, 0.95); padding: 1rem 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="container">
+      <p style="margin: 0; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);">
+        Sivuston toteutus: <a href="https://www.foxinthecode.fi" target="_blank" rel="noopener" 
+           style="color: var(--primary-color); text-decoration: none; font-weight: 500; transition: var(--transition);"
+           onmouseover="this.style.color='var(--primary-hover)'" 
+           onmouseout="this.style.color='var(--primary-color)'">www.foxinthecode.fi</a>
       </p>
     </div>
-  </section>
+  </footer>
 
-  <section class="services">
-    <div class="service-card">
-      <h2>Valokuituverkkojen asennus</h2>
-      <p>Kaivuutyöt, kaapelointi ja mittausvalmiit toimitukset – turvallisesti ja ajallaan.</p>
-    </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.getElementById('nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      
+      console.log('Script loaded');
+      console.log('navToggle:', navToggle);
+      console.log('navMenu:', navMenu);
+      
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          console.log('Toggle clicked');
+          
+          const isOpen = navMenu.classList.contains('is-open');
+          console.log('Is currently open:', isOpen);
+          
+          if (isOpen) {
+            navMenu.classList.remove('is-open');
+            navToggle.textContent = '☰ Valikko';
+            console.log('Menu closed');
+          } else {
+            navMenu.classList.add('is-open');
+            navToggle.textContent = '✕ Sulje';
+            console.log('Menu opened');
+          }
+          
+          console.log('Menu classes:', navMenu.className);
+        });
 
-    <div class="service-card">
-      <h2>Suuntaporaus</h2>
-      <p>Vaativat ali- tai ohiporaukset kohteissa, joissa kaivaminen ei ole mahdollista tai toivottavaa.</p>
-    </div>
+        // Close when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove('is-open');
+            navToggle.textContent = '☰ Valikko';
+          }
+        });
+      } else {
+        console.log('Elements not found!');
+      }
 
-    <div class="service-card">
-      <h2>Maanrakennus ja kaivutyöt</h2>
-      <p>Kaikki kaivinkonepalvelut, perustuskaivannot, sadevesijärjestelmät ja pohjatyöt.</p>
-    </div>
+      // Add fade-in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-    <div class="service-card">
-      <h2>Kokonaisurakointi</h2>
-      <p>Työn suunnittelu, laskenta ja toteutus yhdestä paikasta – "kerralla ja kunnolla" -periaatteella.</p>
-    </div>
-  </section>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+          }
+        });
+      }, observerOptions);
 
-  <a href="index.html" class="back-button">Takaisin etusivulle</a>
+      // Observe elements that should fade in
+      document.querySelectorAll('.service-card').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
