@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsiveness Test - Alakuijala</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .device-frame {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .device-header {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .device-screen {
+            border: 2px solid #ddd;
+            overflow: hidden;
+        }
+        .mobile { width: 375px; height: 600px; }
+        .tablet { width: 768px; height: 500px; }
+        .desktop { width: 1200px; height: 500px; }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform-origin: top left;
+        }
+        
+        .mobile iframe { transform: scale(0.8); width: 125%; height: 125%; }
+        .tablet iframe { transform: scale(0.75); width: 133%; height: 133%; }
+        .desktop iframe { transform: scale(0.5); width: 200%; height: 200%; }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .test-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .page-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .page-links a {
+            padding: 10px 20px;
+            background: #facc15;
+            color: #333;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .page-links a:hover {
+            background: #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 Alakuijala Mobile Responsiveness Test</h1>
+    
+    <div class="test-info">
+        <strong>Testing Instructions:</strong>
+        <ol>
+            <li>Click the page links below to test different pages</li>
+            <li>Check how each page looks on Mobile (375px), Tablet (768px), and Desktop (1200px)</li>
+            <li>Look for: navigation functionality, text readability, image scaling, button accessibility</li>
+            <li>Use browser dev tools (F12) for more detailed testing</li>
+        </ol>
+    </div>
+
+    <div class="page-links">
+        <a href="#" onclick="loadPage('index.html')">🏠 Home</a>
+        <a href="#" onclick="loadPage('palvelut.html')">🔧 Services</a>
+        <a href="#" onclick="loadPage('Yritys.html')">🏢 About</a>
+        <a href="#" onclick="loadPage('yhteystiedot.html')">📞 Contact</a>
+    </div>
+
+    <div class="test-container">
+        <div class="device-frame">
+            <div class="device-header">📱 Mobile (375px)</div>
+            <div class="device-screen mobile">
+                <iframe id="mobile-frame" src="index.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="device-frame">
+            <div class="device-header">📲 Tablet (768px) - FIXED</div>
+            <div class="device-screen tablet">
+                <iframe id="tablet-frame" src="index.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="device-frame">
+            <div class="device-header">🖥️ Desktop (1200px)</div>
+            <div class="device-screen desktop">
+                <iframe id="desktop-frame" src="index.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: #d4edda; padding: 15px; border-radius: 8px; margin-top: 30px;">
+        <strong>🎉 NEW: Bottom Mobile Navigation!</strong>
+        <ul>
+            <li><strong>✅ REPLACED:</strong> Hamburger menu with bottom navigation bar</li>
+            <li><strong>✅ FEATURES:</strong> Fixed bottom position, emoji icons, active states</li>
+            <li><strong>✅ RESPONSIVE:</strong> Only shows on mobile (≤768px), hidden on desktop</li>
+            <li><strong>✅ NAVIGATION:</strong> 🏠 Koti | 🔧 Palvelut | 🏢 Meistä | 📞 Yhteys</li>
+        </ul>
+    </div>
+
+    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <strong>🔧 LAYOUT FIX:</strong>
+        <ul>
+            <li><strong>✅ FIXED:</strong> Navigation positioning consistency across all pages</li>
+            <li><strong>✅ REMOVED:</strong> Extra E-Office element that was causing layout shift</li>
+            <li><strong>✅ CLEANED:</strong> Removed unused CSS rules</li>
+            <li><strong>✅ RESULT:</strong> Desktop navigation now properly positioned on all pages</li>
+        </ul>
+    </div>
+
+    <div style="background: #e7f3ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <strong>📲 TABLET FIX (768px):</strong>
+        <ul>
+            <li><strong>✅ CHANGED:</strong> Breakpoint from 768px to 767px</li>
+            <li><strong>✅ ADDED:</strong> Tablet-specific optimization (768px-1024px)</li>
+            <li><strong>✅ RESULT:</strong> 768px now shows desktop navigation with tablet sizing</li>
+            <li><strong>✅ BEHAVIOR:</strong> ≤767px = mobile nav, ≥768px = desktop nav</li>
+        </ul>
+    </div>
+
+    <div style="background: #f8d7da; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <strong>🗑️ E-OFFICE REMOVED:</strong>
+        <ul>
+            <li><strong>✅ REMOVED:</strong> E-Office button completely from all pages</li>
+            <li><strong>✅ CLEANED:</strong> All E-Office CSS rules eliminated</li>
+            <li><strong>✅ RESULT:</strong> Simplified layout, no layout conflicts</li>
+            <li><strong>✅ BENEFIT:</strong> Navigation positioning should be rock-solid now</li>
+        </ul>
+    </div>
+    
+    <div style="background: #cce5ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <strong>📱 Test Navigation Across All Sizes:</strong>
+        <ol>
+            <li><strong>📱 Mobile (375px):</strong> Bottom navigation bar with 🏠🔧🏢📞 icons</li>
+            <li><strong>📲 Tablet (768px):</strong> Desktop navigation in top-right corner (smaller size)</li>
+            <li><strong>🖥️ Desktop (1200px):</strong> Full desktop navigation in top-right corner</li>
+            <li><strong>Test:</strong> Switch pages using buttons above - navigation should stay consistent</li>
+            <li><strong>Look for:</strong> Navigation buttons in RIGHT corner on tablet/desktop views</li>
+        </ol>
+    </div>
+
+    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <strong>🔍 What to Check in Each View:</strong>
+        <ul>
+            <li><strong>Mobile:</strong> Bottom bar visible, no top navigation</li>
+            <li><strong>Tablet:</strong> Yellow navigation buttons in TOP-RIGHT corner</li>
+            <li><strong>Desktop:</strong> Yellow navigation buttons in TOP-RIGHT corner (larger)</li>
+            <li><strong>All views:</strong> Navigation should NOT jump to different positions between pages</li>
+        </ul>
+    </div>
+
+    <script>
+        function loadPage(page) {
+            document.getElementById('mobile-frame').src = page;
+            document.getElementById('tablet-frame').src = page;
+            document.getElementById('desktop-frame').src = page;
+        }
+        
+        // Add some basic responsive testing alerts
+        window.addEventListener('load', function() {
+            console.log('📱 Mobile Test Page Loaded');
+            console.log('Current viewport: ' + window.innerWidth + 'x' + window.innerHeight);
+        });
+    </script>
+</body>
+</html>

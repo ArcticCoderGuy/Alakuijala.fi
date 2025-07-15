@@ -85,57 +85,7 @@
       top: 6px;
     }
 
-    /* E-office button - Desktop only */
-    .eoffice-btn {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-      color: white;
-      padding: 0.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.7rem;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      z-index: 1000;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      line-height: 1.1;
-    }
 
-    .eoffice-btn:hover,
-    .eoffice-btn:focus {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
-      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-    }
-
-    /* E-office mobile button */
-    .eoffice-mobile {
-      display: none;
-      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.8rem;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      white-space: nowrap;
-    }
-
-    .eoffice-mobile:hover {
-      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-    }
 
     /* Header styles */
     .header {
@@ -181,6 +131,23 @@
       right: 2rem;
       top: 1rem;
       z-index: 100;
+    }
+
+    /* Tablet optimizations */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .nav {
+        right: 1.5rem;
+        top: 0.75rem;
+      }
+      
+      .nav__list {
+        gap: 0.4rem;
+      }
+      
+      .nav__link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+      }
     }
 
     @media (min-width: 1200px) {
@@ -245,6 +212,70 @@
       box-shadow: var(--shadow-lg);
     }
 
+    /* Bottom mobile navigation */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(20px);
+      border-top: 2px solid var(--primary-color);
+      padding: 0.75rem 0.5rem;
+      z-index: 9999;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-nav__list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 0.5rem;
+    }
+
+    .mobile-nav__item {
+      flex: 1;
+      text-align: center;
+    }
+
+    .mobile-nav__link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: var(--transition);
+      font-size: 0.75rem;
+      font-weight: 500;
+      min-height: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-nav__link:hover,
+    .mobile-nav__link:focus,
+    .mobile-nav__link.active {
+      background: var(--primary-color);
+      color: var(--text-dark);
+      transform: translateY(-2px);
+    }
+
+    .mobile-nav__icon {
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Hide original navigation toggle on mobile */
+    .nav__toggle {
+      display: none;
+    }
+
     /* Hero section */
     .hero {
       min-height: 80vh;
@@ -254,7 +285,7 @@
         rgba(30, 41, 59, 0.05) 50%,
         rgba(15, 23, 42, 0.2) 100%
       ),
-      url('img/Kuva5.png');
+      url('img/service-2.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -442,98 +473,60 @@
       }
     }
 
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .eoffice-btn {
-        display: none;
-      }
+    /* Image optimization for mobile */
+    img {
+      max-width: 100%;
+      height: auto;
+      loading: lazy;
+    }
 
-      .eoffice-mobile {
-        display: inline-flex;
-        align-items: center;
+    .hero {
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Mobile-specific image optimizations */
+    @media (max-width: 767px) {
+      .hero {
+        background-image: url('img/service-2.png');
+        background-size: cover;
+        background-position: center 25%;
       }
+    }
+
+    /* Responsive design */
+    @media (max-width: 767px) {
+
 
       .header__content {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
         position: relative;
         width: 100%;
       }
 
       .header__logo {
-        order: 2;
+        order: 1;
       }
 
+      /* Hide top navigation on mobile */
       .nav {
-        order: 1;
-        position: static;
-        transform: none;
-        right: auto;
-        top: auto;
-        z-index: auto;
-        width: 100%;
-        justify-content: space-between;
+        display: none;
+      }
+
+      /* Show bottom mobile navigation */
+      .mobile-nav {
+        display: block;
       }
 
       .header__logo img {
         height: 45px;
       }
 
-      .nav__list {
-        display: none;
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 0;
-        right: 0;
-        background: rgba(15, 23, 42, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        gap: 0;
-        border-radius: var(--border-radius);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        margin-top: 0;
-      }
-
-      .nav__list.is-open {
-        display: flex;
-      }
-
-      .nav__toggle {
-        display: block;
-        font-size: 0.85rem;
-        padding: 0.6rem 1rem;
-      }
-
-      .nav__link {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        border-radius: 0;
-        background: transparent;
-        color: var(--text-primary);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 1rem;
-      }
-
-      .nav__link:first-child {
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
-      }
-
-      .nav__link:last-child {
-        border-bottom: none;
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-      }
-
-      .nav__link:hover,
-      .nav__link:focus,
-      .nav__link.nav__link--active {
-        background: var(--primary-color);
-        color: var(--text-dark);
-        transform: none;
+      /* Add bottom padding to main content to account for bottom nav */
+      .content {
+        padding-bottom: 90px;
       }
 
       .hero {
@@ -544,7 +537,7 @@
           rgba(30, 41, 59, 0.1) 50%,
           rgba(15, 23, 42, 0.2) 100%
         ),
-        url('img/Kuva5.png');
+        url('img/service-2.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -560,7 +553,7 @@
       }
 
       .content {
-        padding: 1.5rem 0;
+        padding: 1.5rem 0 4rem 0;
       }
 
       .content__card {
@@ -597,15 +590,7 @@
         height: 40px;
       }
 
-      .nav__toggle {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.75rem;
-      }
 
-      .eoffice-mobile {
-        font-size: 0.75rem;
-        padding: 0.5rem 0.75rem;
-      }
 
       .hero__content {
         margin: 0 0.5rem;
@@ -626,7 +611,6 @@
     /* Print styles */
     @media print {
       .nav,
-      .eoffice-btn,
       .back-btn {
         display: none;
       }
@@ -643,11 +627,22 @@
         border: 1px solid black;
       }
     }
+
+    /* KRIITTINEN: Tablet nav override - PAKKO toimia */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .nav__link {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.7rem !important;
+      }
+      
+      .nav__list {
+        gap: 0.3rem !important;
+      }
+    }
   </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Siirry pääsisältöön</a>
-  <a href="#" class="eoffice-btn">E-Office</a>
   
   <header class="header">
     <div class="container">
@@ -657,7 +652,6 @@
         </div>
         
         <nav class="nav" role="navigation" aria-label="Päänavigaatio">
-          <a href="#" class="eoffice-mobile">E-Office</a>
           <button class="nav__toggle" id="nav-toggle">
             ☰ Valikko
           </button>
@@ -669,7 +663,7 @@
               <a href="palvelut.html" class="nav__link" role="menuitem">Palvelut</a>
             </li>
             <li role="none">
-              <a href="yritys.html" class="nav__link nav__link--active" role="menuitem">Meistä</a>
+              <a href="Yritys.html" class="nav__link nav__link--active" role="menuitem">Meistä</a>
             </li>
             <li role="none">
               <a href="yhteystiedot.html" class="nav__link" role="menuitem">Yhteystiedot</a>
@@ -739,6 +733,36 @@
     </div>
   </footer>
 
+  <!-- Bottom Mobile Navigation -->
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+    <ul class="mobile-nav__list">
+      <li class="mobile-nav__item">
+        <a href="index.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🏠</span>
+          <span>Koti</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="palvelut.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🔧</span>
+          <span>Palvelut</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="Yritys.html" class="mobile-nav__link active">
+          <span class="mobile-nav__icon">🏢</span>
+          <span>Meistä</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="yhteystiedot.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">📞</span>
+          <span>Yhteys</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const navToggle = document.getElementById('nav-toggle');
@@ -786,6 +810,20 @@
       document.querySelectorAll('.content__card').forEach(el => {
         observer.observe(el);
       });
+
+      // Set active state for mobile navigation
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
+      
+      mobileNavLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+
+      console.log('✅ Bottom mobile navigation loaded successfully!');
     });
   </script>
 </body>

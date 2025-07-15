@@ -83,41 +83,6 @@
       top: 6px;
     }
 
-    /* E-office button */
-    .eoffice-btn {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-      color: white;
-      padding: 0.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.7rem;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      z-index: 1000;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      line-height: 1.1;
-    }
-
-    .eoffice-btn:hover,
-    .eoffice-btn:focus {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
-      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-    }
-
-    .eoffice-btn:active {
-      transform: translateY(-1px);
-    }
 
     /* Header styles */
     .header {
@@ -165,6 +130,23 @@
       z-index: 100;
     }
 
+    /* Tablet optimizations */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .nav {
+        right: 1.5rem;
+        top: 0.75rem;
+      }
+      
+      .nav__list {
+        gap: 0.4rem;
+      }
+      
+      .nav__link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+      }
+    }
+
     @media (min-width: 1200px) {
       .nav {
         right: 3rem;
@@ -192,6 +174,9 @@
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
       white-space: nowrap;
+      min-height: 44px;
+      min-width: 44px;
+      touch-action: manipulation;
     }
 
     .nav__link:hover,
@@ -205,25 +190,68 @@
       transform: translateY(0);
     }
 
-    /* Mobile menu toggle */
-    .nav__toggle {
+    /* Bottom mobile navigation */
+    .mobile-nav {
       display: none;
-      background: var(--primary-color);
-      border: none;
-      border-radius: var(--border-radius);
-      padding: 0.75rem;
-      cursor: pointer;
-      color: var(--text-dark);
-      font-weight: 600;
-      transition: var(--transition);
-      box-shadow: var(--shadow-md);
-      position: relative;
-      z-index: 1001;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(20px);
+      border-top: 2px solid var(--primary-color);
+      padding: 0.75rem 0.5rem;
+      z-index: 9999;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .nav__toggle:hover {
-      background: var(--primary-hover);
-      box-shadow: var(--shadow-lg);
+    .mobile-nav__list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 0.5rem;
+    }
+
+    .mobile-nav__item {
+      flex: 1;
+      text-align: center;
+    }
+
+    .mobile-nav__link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: var(--transition);
+      font-size: 0.75rem;
+      font-weight: 500;
+      min-height: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-nav__link:hover,
+    .mobile-nav__link:focus,
+    .mobile-nav__link.active {
+      background: var(--primary-color);
+      color: var(--text-dark);
+      transform: translateY(-2px);
+    }
+
+    .mobile-nav__icon {
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Hide original navigation toggle on mobile */
+    .nav__toggle {
+      display: none;
     }
 
     /* Hero section */
@@ -235,7 +263,7 @@
         rgba(30, 41, 59, 0.005) 50%,
         rgba(15, 23, 42, 0.02) 100%
       ),
-      url('img/Kuva7.png');
+      url('img/main-hero.png');
       background-size: cover;
       background-position: center bottom;
       background-attachment: fixed;
@@ -362,22 +390,40 @@
       }
     }
 
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .eoffice-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 0.65rem;
-        top: 0.75rem;
-        left: 0.75rem;
+    /* Image optimization for mobile */
+    img {
+      max-width: 100%;
+      height: auto;
+      loading: lazy;
+    }
+
+    .hero {
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Mobile-specific image optimizations */
+    @media (max-width: 767px) {
+      .hero {
+        background-image: url('img/main-hero.png');
+        background-size: cover;
+        background-position: center 25%;
       }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        background-position: center 30%;
+      }
+    }
+
+    /* Responsive design */
+    @media (max-width: 767px) {
 
       .header__content {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 0.75rem;
         position: relative;
         width: 100%;
       }
@@ -386,67 +432,23 @@
         order: 1;
       }
 
+      /* Hide top navigation on mobile */
       .nav {
-        order: 2;
-        position: relative;
-        transform: none;
-        right: auto;
-        top: auto;
-        z-index: auto;
+        display: none;
+      }
+
+      /* Show bottom mobile navigation */
+      .mobile-nav {
+        display: block;
       }
 
       .header__logo img {
         height: 45px;
       }
 
-      .nav__list {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(15, 23, 42, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        gap: 0;
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-top: none;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        margin-top: 10px;
-      }
-
-      .nav__list.is-open {
-        display: flex;
-      }
-
-      .nav__toggle {
-        display: block;
-        font-size: 0.85rem;
-        padding: 0.6rem 1rem;
-      }
-
-      .nav__link {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        border-radius: 0;
-        background: transparent;
-        color: var(--text-primary);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 1rem;
-      }
-
-      .nav__link:last-child {
-        border-bottom: none;
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-      }
-
-      .nav__link:hover,
-      .nav__link:focus {
-        background: var(--primary-color);
-        color: var(--text-dark);
-        transform: none;
+      /* Add bottom padding to main content to account for bottom nav */
+      .hero {
+        padding-bottom: 90px;
       }
 
       .hero {
@@ -460,7 +462,7 @@
           rgba(30, 41, 59, 0.002) 50%,
           rgba(15, 23, 42, 0.01) 100%
         ),
-        url('img/Kuva7.png');
+        url('img/main-hero.png');
         background-size: cover;
         background-position: center 20%;
       }
@@ -515,13 +517,6 @@
         padding: 0.5rem 0.75rem;
       }
 
-      .eoffice-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 0.6rem;
-        top: 0.5rem;
-        left: 0.5rem;
-      }
 
       .hero {
         min-height: calc(100vh - 65px);
@@ -533,7 +528,7 @@
           rgba(30, 41, 59, 0.002) 50%,
           rgba(15, 23, 42, 0.01) 100%
         ),
-        url('img/Kuva7.png');
+        url('img/main-hero.png');
         background-size: cover;
         background-position: center 25%;
       }
@@ -617,8 +612,7 @@
     /* Print styles */
     @media print {
       .nav,
-      .hero__cta,
-      .eoffice-btn {
+      .hero__cta {
         display: none;
       }
       
@@ -633,11 +627,22 @@
         border: 1px solid black;
       }
     }
+
+    /* KRIITTINEN: Tablet nav override - PAKKO toimia */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .nav__link {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.7rem !important;
+      }
+      
+      .nav__list {
+        gap: 0.3rem !important;
+      }
+    }
   </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Siirry pääsisältöön</a>
-  <a href="#" class="eoffice-btn">E-Office</a>
   
   <header class="header">
     <div class="container">
@@ -655,7 +660,7 @@
               <a href="palvelut.html" class="nav__link" role="menuitem">Palvelut</a>
             </li>
             <li role="none">
-              <a href="yritys.html" class="nav__link" role="menuitem">Meistä</a>
+              <a href="Yritys.html" class="nav__link" role="menuitem">Meistä</a>
             </li>
             <li role="none">
               <a href="yhteystiedot.html" class="nav__link" role="menuitem">Yhteystiedot</a>
@@ -695,30 +700,51 @@
     </div>
   </footer>
 
+  <!-- Bottom Mobile Navigation -->
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+    <ul class="mobile-nav__list">
+      <li class="mobile-nav__item">
+        <a href="index.html" class="mobile-nav__link active">
+          <span class="mobile-nav__icon">🏠</span>
+          <span>Koti</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="palvelut.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🔧</span>
+          <span>Palvelut</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="Yritys.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">🏢</span>
+          <span>Meistä</span>
+        </a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="yhteystiedot.html" class="mobile-nav__link">
+          <span class="mobile-nav__icon">📞</span>
+          <span>Yhteys</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const navToggle = document.getElementById('nav-toggle');
-      const navMenu = document.getElementById('nav-menu');
+      // Set active state for mobile navigation
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
       
-      if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-          if (navMenu.classList.contains('is-open')) {
-            navMenu.classList.remove('is-open');
-            navToggle.textContent = '☰ Valikko';
-          } else {
-            navMenu.classList.add('is-open');
-            navToggle.textContent = '✕ Sulje';
-          }
-        });
+      mobileNavLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
 
-        // Close when clicking outside
-        document.addEventListener('click', function(e) {
-          if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-            navMenu.classList.remove('is-open');
-            navToggle.textContent = '☰ Valikko';
-          }
-        });
-      }
+      console.log('✅ Bottom mobile navigation loaded successfully!');
     });
   </script>
 </body>

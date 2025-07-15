@@ -134,3 +134,5 @@ Tuottaa sarjassa asiakaskohtaisia verkkosivustoja, jotka ovat:
 NEXT_PUBLIC_SUPABASE_URL=https://project-id.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
 
+Joo
+
