@@ -340,6 +340,26 @@
       overflow: hidden;
     }
 
+    .service-card--with-image {
+      padding: 0;
+    }
+
+    .service-card__image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+      transition: var(--transition);
+    }
+
+    .service-card__content {
+      padding: 2rem;
+    }
+
+    .service-card--with-image:hover .service-card__image {
+      transform: scale(1.05);
+    }
+
     .service-card::before {
       content: '';
       position: absolute;
@@ -600,6 +620,14 @@
       .service-card {
         padding: 1.5rem;
       }
+
+      .service-card__content {
+        padding: 1.5rem;
+      }
+
+      .service-card__image {
+        height: 150px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -632,6 +660,14 @@
 
       .service-card {
         padding: 1.25rem;
+      }
+
+      .service-card__content {
+        padding: 1.25rem;
+      }
+
+      .service-card__image {
+        height: 120px;
       }
 
       .back-btn {
@@ -744,18 +780,21 @@
             </p>
           </div>
 
-          <div class="service-card fade-in">
-            <div class="service-card__icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M19,17H22V19H19V17M19,13H22V15H19V13M19,9H22V11H19V9M19,5H22V7H19V5M17,5V19H2V5H17M15,7H4V17H15V7Z"/>
-                <path d="M6,9H13V10H6V9M6,11H13V12H6V11M6,13H10V14H6V13Z"/>
-              </svg>
+          <div class="service-card service-card--with-image fade-in">
+            <img src="img/Oy1.jpg" alt="Alakuijala Oy kaivinkone työssä - maanrakennus ja kaivutyöt" class="service-card__image">
+            <div class="service-card__content">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M19,17H22V19H19V17M19,13H22V15H19V13M19,9H22V11H19V9M19,5H22V7H19V5M17,5V19H2V5H17M15,7H4V17H15V7Z"/>
+                  <path d="M6,9H13V10H6V9M6,11H13V12H6V11M6,13H10V14H6V13Z"/>
+                </svg>
+              </div>
+              <h2 class="service-card__title">Maanrakennus ja kaivutyöt</h2>
+              <p class="service-card__description">
+                Kaikki kaivinkonepalvelut, perustuskaivannot, sadevesijärjestelmät ja pohjatyöt. 
+                Kokemuksemme ja kalustomme mahdollistavat myös vaativimpien projektien toteuttamisen.
+              </p>
             </div>
-            <h2 class="service-card__title">Maanrakennus ja kaivutyöt</h2>
-            <p class="service-card__description">
-              Kaikki kaivinkonepalvelut, perustuskaivannot, sadevesijärjestelmät ja pohjatyöt. 
-              Kokemuksemme ja kalustomme mahdollistavat myös vaativimpien projektien toteuttamisen.
-            </p>
           </div>
 
           <div class="service-card fade-in">
