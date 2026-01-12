@@ -6,7 +6,7 @@
   <meta name="description" content="Alakuijala Oy palvelut - Valokuituverkkojen asennus, suuntaporaus, maanrakennus ja kokonaisurakointi Pohjois-Suomessa">
   <meta name="keywords" content="valokuitu, maasähkö, suuntaporaus, maanrakennus, kokonaisurakointi, Pohjois-Suomi">
   <title>Palvelut - Alakuijala Oy</title>
-  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./Favicon/favicon.ico">
   <meta name="theme-color" content="#0e1b2b">
   
   <!-- Preload critical resources -->
@@ -118,25 +118,6 @@
     }
 
     /* E-office mobile button */
-    .eoffice-mobile {
-      display: none;
-      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.8rem;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      white-space: nowrap;
-    }
-
-    .eoffice-mobile:hover {
-      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-    }
-
     /* Header styles */
     .header {
       position: relative;
@@ -180,7 +161,7 @@
       position: fixed;
       right: 2rem;
       top: 1rem;
-      z-index: 100;
+      z-index: 1000;
     }
 
     @media (min-width: 1200px) {
@@ -519,11 +500,6 @@
         display: none;
       }
 
-      .eoffice-mobile {
-        display: inline-flex;
-        align-items: center;
-      }
-
       .header {
         position: sticky;
         top: 0;
@@ -695,11 +671,6 @@
         padding: 0.6rem 1rem;
       }
 
-      .eoffice-mobile {
-        font-size: 0.75rem;
-        padding: 0.5rem 0.75rem;
-      }
-
       .hero__content {
         margin: 0 0.75rem;
         padding: 1.75rem 1.25rem;
@@ -809,8 +780,7 @@
         </div>
         
         <nav class="nav" role="navigation" aria-label="Päänavigaatio">
-          <a href="#" class="eoffice-mobile">E-Office</a>
-          <button class="nav__toggle" id="nav-toggle">
+          <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-label="Avaa navigaatio">
             ☰ Valikko
           </button>
           <ul class="nav__list" id="nav-menu" role="menubar">
@@ -854,7 +824,7 @@
       <div class="container">
         <div class="services__grid">
           <div class="service-card service-card--with-image fade-in">
-            <img src="img/Oy1.jpg" alt="Alakuijala Oy valokuituverk kojen asennus" class="service-card__image">
+            <img src="img/Oy1.jpg" alt="Alakuijala Oy valokuituverk kojen asennus" class="service-card__image" loading="lazy">
             <div class="service-card__content">
               <div class="service-card__icon">
                 <svg viewBox="0 0 24 24">
@@ -870,7 +840,7 @@
           </div>
 
           <div class="service-card service-card--with-image fade-in">
-            <img src="img/Oy2.jpg" alt="Alakuijala Oy suuntaporauskone työssä - suuntaporaus" class="service-card__image">
+            <img src="img/Oy2.jpg" alt="Alakuijala Oy suuntaporauskone työssä - suuntaporaus" class="service-card__image" loading="lazy">
             <div class="service-card__content">
               <div class="service-card__icon">
                 <svg viewBox="0 0 24 24">
@@ -900,7 +870,7 @@
           </div>
 
           <div class="service-card service-card--with-image fade-in">
-            <img src="img/Oy3.jpg" alt="Alakuijala Oy paalutustyö - Volvo kaivinkone ja paalutuskalusto" class="service-card__image">
+            <img src="img/Oy3.jpg" alt="Alakuijala Oy paalutustyö - Volvo kaivinkone ja paalutuskalusto" class="service-card__image" loading="lazy">
             <div class="service-card__content">
               <div class="service-card__icon">
                 <svg viewBox="0 0 24 24">
@@ -946,7 +916,7 @@
   <footer class="footer">
     <div class="container">
       <p class="footer__text">
-        Sivuston toteutus: <a href="https://www.foxinthecode.fi" target="_blank" rel="noopener" class="footer__link">www.foxinthecode.fi</a>
+        Sivuston toteutus: <a href="https://www.foxinthecode.fi" target="_blank" rel="noopener noreferrer" class="footer__link">www.foxinthecode.fi</a>
       </p>
     </div>
   </footer>
@@ -964,20 +934,22 @@
         navToggle.addEventListener('click', function(e) {
           e.preventDefault();
           console.log('Toggle clicked');
-          
+
           const isOpen = navMenu.classList.contains('is-open');
           console.log('Is currently open:', isOpen);
-          
+
           if (isOpen) {
             navMenu.classList.remove('is-open');
             navToggle.textContent = '☰ Valikko';
+            navToggle.setAttribute('aria-expanded', 'false');
             console.log('Menu closed');
           } else {
             navMenu.classList.add('is-open');
             navToggle.textContent = '✕ Sulje';
+            navToggle.setAttribute('aria-expanded', 'true');
             console.log('Menu opened');
           }
-          
+
           console.log('Menu classes:', navMenu.className);
         });
 
@@ -986,6 +958,7 @@
           if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
             navMenu.classList.remove('is-open');
             navToggle.textContent = '☰ Valikko';
+            navToggle.setAttribute('aria-expanded', 'false');
           }
         });
       } else {

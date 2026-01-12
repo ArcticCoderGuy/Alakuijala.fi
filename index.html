@@ -718,7 +718,7 @@
         </div>
         
         <nav class="nav" role="navigation" aria-label="Päänavigaatio">
-          <button class="nav__toggle" id="nav-toggle">
+          <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-label="Avaa navigaatio">
             ☰ Valikko
           </button>
           <ul class="nav__list" id="nav-menu" role="menubar">
@@ -758,7 +758,7 @@
   <footer class="footer">
     <div class="container">
       <p class="footer__text">
-        Sivuston toteutus: <a href="https://www.foxinthecode.fi" target="_blank" rel="noopener" class="footer__link">www.foxinthecode.fi</a>
+        Sivuston toteutus: <a href="https://www.foxinthecode.fi" target="_blank" rel="noopener noreferrer" class="footer__link">www.foxinthecode.fi</a>
       </p>
     </div>
   </footer>
@@ -773,9 +773,11 @@
           if (navMenu.classList.contains('is-open')) {
             navMenu.classList.remove('is-open');
             navToggle.textContent = '☰ Valikko';
+            navToggle.setAttribute('aria-expanded', 'false');
           } else {
             navMenu.classList.add('is-open');
             navToggle.textContent = '✕ Sulje';
+            navToggle.setAttribute('aria-expanded', 'true');
           }
         });
 
@@ -784,6 +786,7 @@
           if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
             navMenu.classList.remove('is-open');
             navToggle.textContent = '☰ Valikko';
+            navToggle.setAttribute('aria-expanded', 'false');
           }
         });
       }
