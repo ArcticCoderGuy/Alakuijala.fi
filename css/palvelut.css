@@ -10,6 +10,7 @@
   background-size: cover;
   background-position: center bottom;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
@@ -24,6 +25,7 @@
     background-size: cover;
     background-position: center bottom;
     background-attachment: scroll;
+    background-repeat: no-repeat;
   }
 }
 
@@ -39,5 +41,6 @@
     background-size: cover;
     background-position: center bottom;
     background-attachment: scroll;
+    background-repeat: no-repeat;
   }
 }
