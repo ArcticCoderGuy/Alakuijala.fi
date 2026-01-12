@@ -451,6 +451,39 @@
     }
 
     /* Responsive design */
+
+    /* Tablet landscape */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .nav {
+        right: 1.5rem;
+        gap: 0.35rem;
+      }
+
+      .nav__link {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.85rem;
+      }
+
+      .eoffice-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 0.65rem;
+        top: 0.85rem;
+        left: 0.85rem;
+      }
+
+      .hero__content {
+        max-width: 700px;
+        padding: 2rem 2.5rem;
+      }
+
+      .contact__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    /* Mobile and small tablets */
     @media (max-width: 768px) {
       .eoffice-btn {
         display: none;
@@ -461,29 +494,35 @@
         align-items: center;
       }
 
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+
       .header__content {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 1rem;
         position: relative;
         width: 100%;
       }
 
       .header__logo {
-        order: 2;
+        order: 1;
+        flex-shrink: 0;
       }
 
       .nav {
-        order: 1;
+        order: 2;
         position: static;
         transform: none;
         right: auto;
         top: auto;
-        z-index: auto;
-        width: 100%;
-        justify-content: space-between;
+        flex: 1;
+        justify-content: flex-end;
       }
 
       .header__logo img {
@@ -492,19 +531,20 @@
 
       .nav__list {
         display: none;
-        position: absolute;
-        top: calc(100% + 10px);
+        position: fixed;
+        top: 77px;
         left: 0;
         right: 0;
         background: rgba(15, 23, 42, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
         gap: 0;
-        border-radius: var(--border-radius);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        margin-top: 0;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        max-height: calc(100vh - 77px);
+        overflow-y: auto;
       }
 
       .nav__list.is-open {
@@ -513,35 +553,37 @@
 
       .nav__toggle {
         display: block;
-        font-size: 0.85rem;
-        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+        white-space: nowrap;
       }
 
       .nav__link {
         width: 100%;
-        padding: 1rem 1.5rem;
+        padding: 1.25rem 1.5rem;
         border-radius: 0;
         background: transparent;
         color: var(--text-primary);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 1rem;
-      }
-
-      .nav__link:first-child {
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        font-size: 1.05rem;
+        transition: all 0.2s ease;
       }
 
       .nav__link:last-child {
         border-bottom: none;
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
       }
 
       .nav__link:hover,
       .nav__link:focus,
       .nav__link.nav__link--active {
-        background: var(--primary-color);
-        color: var(--text-dark);
+        background: rgba(250, 204, 21, 0.15);
+        color: var(--primary-color);
         transform: none;
+        padding-left: 2rem;
+      }
+
+      .nav__link:active {
+        background: rgba(250, 204, 21, 0.25);
       }
 
       /* Mobiili: Parannettu taustakuvan näkyvyys */
@@ -595,14 +637,46 @@
         height: 40px;
       }
 
+      .nav__list {
+        top: 69px;
+        max-height: calc(100vh - 69px);
+      }
+
       .nav__toggle {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
       }
 
       .eoffice-mobile {
         font-size: 0.75rem;
         padding: 0.5rem 0.75rem;
+      }
+
+      .hero__content {
+        margin: 0 0.75rem;
+        padding: 1.5rem 1.75rem;
+      }
+
+      .contact-card {
+        padding: 1.5rem;
+      }
+
+      .back-btn {
+        padding: 0.95rem 2.25rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 360px) {
+      .nav__list {
+        top: 65px;
+        max-height: calc(100vh - 65px);
+      }
+
+      .nav__toggle {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.85rem;
       }
 
       .hero__content {
@@ -613,11 +687,6 @@
       .contact-card {
         padding: 1.25rem;
       }
-
-      .back-btn {
-        padding: 0.875rem 2rem;
-        font-size: 0.9rem;
-      }
     }
 
     /* Print styles */
@@ -627,18 +696,44 @@
       .back-btn {
         display: none;
       }
-      
+
       .hero {
         background: none;
         color: black;
       }
-      
+
       .hero__content,
       .contact-card {
         background: none;
         box-shadow: none;
         border: 1px solid black;
       }
+    }
+
+    /* Footer styles */
+    .footer {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 1rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer__text {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer__link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .footer__link:hover,
+    .footer__link:focus {
+      color: var(--primary-hover);
     }
   </style>
 </head>
@@ -767,13 +862,10 @@ PDF-laskut:
   </main>
 
   <!-- Footer -->
-  <footer style="background: rgba(15, 23, 42, 0.95); padding: 1rem 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+  <footer class="footer">
     <div class="container">
-      <p style="margin: 0; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);">
-        Sivuston toteutus: <a href="https://www.foxinthecode.fi" target="_blank" rel="noopener" 
-           style="color: var(--primary-color); text-decoration: none; font-weight: 500; transition: var(--transition);"
-           onmouseover="this.style.color='var(--primary-hover)'" 
-           onmouseout="this.style.color='var(--primary-color)'">www.foxinthecode.fi</a>
+      <p class="footer__text">
+        Sivuston toteutus: <a href="https://www.foxinthecode.fi" target="_blank" rel="noopener" class="footer__link">www.foxinthecode.fi</a>
       </p>
     </div>
   </footer>
