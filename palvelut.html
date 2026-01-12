@@ -8,7 +8,20 @@
   <title>Palvelut - Alakuijala Oy</title>
   <link rel="icon" type="image/x-icon" href="./Favicon/favicon.ico">
   <meta name="theme-color" content="#0e1b2b">
-  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alakuijala.fi/palvelut.html">
+  <meta property="og:title" content="Palvelut - Alakuijala Oy">
+  <meta property="og:description" content="Valokuituverkkojen asennus, suuntaporaus, maanrakennus ja kokonaisurakointi. Ammattitaitoa ja laatua Pohjois-Suomessa.">
+  <meta property="og:image" content="https://alakuijala.fi/img/Alakuijala-logo.png">
+  <meta property="og:locale" content="fi_FI">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Palvelut - Alakuijala Oy">
+  <meta name="twitter:description" content="Valokuituverkkojen asennus, suuntaporaus, maanrakennus ja kokonaisurakointi">
+
   <!-- Preload critical resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +32,53 @@
   <link rel="stylesheet" href="css/palvelut.css">
 </head>
 <body>
+  <!-- Schema.org structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Infrastruktuurirakentaminen",
+    "provider": {
+      "@type": "Organization",
+      "name": "Alakuijala Oy",
+      "url": "https://alakuijala.fi"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Pohjois-Suomi"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Rakennuspalvelut",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Valokuituverkkojen asennus",
+            "description": "Ammattitaitoinen valokuituverkkojen asennus ja huolto"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Suuntaporaus",
+            "description": "Maanalainen kaapelointi suuntaporauksella"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Maanrakennus ja kaivutyöt",
+            "description": "Paalutustyöt, kaivutyöt ja maanrakennus"
+          }
+        }
+      ]
+    }
+  }
+  </script>
   <a href="#main" class="skip-link">Siirry pääsisältöön</a>
   <a href="#" class="eoffice-btn">E-Office</a>
   

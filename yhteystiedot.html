@@ -8,7 +8,20 @@
   <title>Yhteystiedot - Alakuijala Oy</title>
   <link rel="icon" type="image/x-icon" href="./Favicon/favicon.ico">
   <meta name="theme-color" content="#0e1b2b">
-  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alakuijala.fi/yhteystiedot.html">
+  <meta property="og:title" content="Yhteystiedot - Alakuijala Oy">
+  <meta property="og:description" content="Ota yhteyttä Pohjois-Suomen luotettavaan maanrakennusalan asiantuntijaan. Toimistomme sijaitsee Torniossa.">
+  <meta property="og:image" content="https://alakuijala.fi/img/Alakuijala-logo.png">
+  <meta property="og:locale" content="fi_FI">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yhteystiedot - Alakuijala Oy">
+  <meta name="twitter:description" content="Ota yhteyttä Pohjois-Suomen luotettavaan maanrakennusalan asiantuntijaan">
+
   <!-- Preload critical resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +32,27 @@
   <link rel="stylesheet" href="css/yhteystiedot.css">
 </head>
 <body>
+  <!-- Schema.org structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Alakuijala Oy",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tornio",
+        "addressRegion": "Lappi",
+        "addressCountry": "FI"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Pohjois-Suomi"
+      }
+    }
+  }
+  </script>
   <a href="#main" class="skip-link">Siirry pääsisältöön</a>
   <a href="#" class="eoffice-btn">E-Office</a>
   

@@ -8,7 +8,20 @@
   <title>Meistä - Alakuijala Oy</title>
   <link rel="icon" type="image/x-icon" href="./Favicon/favicon.ico">
   <meta name="theme-color" content="#0e1b2b">
-  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alakuijala.fi/yritys.html">
+  <meta property="og:title" content="Meistä - Alakuijala Oy">
+  <meta property="og:description" content="50 vuotta kokemusta maanrakennuksesta Pohjois-Suomessa. Laatua, luottamusta ja ammattitaitoa sukupolvelta toiselle.">
+  <meta property="og:image" content="https://alakuijala.fi/img/Alakuijala-logo.png">
+  <meta property="og:locale" content="fi_FI">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meistä - Alakuijala Oy">
+  <meta name="twitter:description" content="50 vuotta kokemusta maanrakennuksesta Pohjois-Suomessa">
+
   <!-- Preload critical resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +32,30 @@
   <link rel="stylesheet" href="css/yritys.css">
 </head>
 <body>
+  <!-- Schema.org structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Alakuijala Oy",
+      "foundingDate": "1970",
+      "description": "50 vuotta kokemusta maanrakennuksesta Pohjois-Suomessa",
+      "knowsAbout": [
+        "Valokuituverkkojen asennus",
+        "Suuntaporaus",
+        "Maanrakennus"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tornio",
+        "addressRegion": "Lappi",
+        "addressCountry": "FI"
+      }
+    }
+  }
+  </script>
   <a href="#main" class="skip-link">Siirry pääsisältöön</a>
   <a href="#" class="eoffice-btn">E-Office</a>
   
