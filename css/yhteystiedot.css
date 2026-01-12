@@ -13,7 +13,6 @@
   background-repeat: no-repeat, no-repeat;
   min-height: 60vh;
   padding: 4rem 0;
-  border: 10px solid red;
 }
 
 @media (max-width: 768px) {
