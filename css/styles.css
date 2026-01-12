@@ -191,6 +191,23 @@ body {
   transform: translateY(0);
 }
 
+.nav__link--active {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.nav__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--text-dark);
+  border-radius: 2px;
+}
+
 /* Mobile menu toggle */
 .nav__toggle {
   display: none;
