@@ -691,6 +691,155 @@ body {
   color: var(--primary-hover);
 }
 
+/* Content section - Yritys-sivun tyylit */
+.content {
+  padding: 4rem 0;
+  background: var(--background-dark);
+}
+
+.content__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content__card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.content__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+}
+
+.content__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.content__text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.content__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Highlight box */
+.highlight-box {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border: 1px solid rgba(250, 204, 21, 0.2);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.highlight-box::before {
+  content: '✨';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--background-dark);
+  padding: 0 10px;
+  font-size: 1.2rem;
+}
+
+/* Contact section - Yhteystiedot-sivun tyylit */
+.contact {
+  padding: 4rem 0;
+  background: var(--background-dark);
+}
+
+.contact__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin-top: 2rem;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-card__icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.contact-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.contact-card__content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  white-space: pre-line;
+}
+
+.contact-card__content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-card__content a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
 /* Services section - Palvelukorttien tyylit */
 .services {
   padding: 4rem 0;
@@ -859,6 +1008,43 @@ body {
   .service-card__image {
     height: 150px;
   }
+
+  .content {
+    padding: 1.5rem 0;
+  }
+
+  .content__card {
+    margin: 0 1rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .content__title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content__text {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .highlight-box {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+  }
+
+  .contact {
+    padding: 1.5rem 0;
+  }
+
+  .contact__grid {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -872,6 +1058,18 @@ body {
 
   .service-card__image {
     height: 140px;
+  }
+
+  .content__card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .content__title {
+    font-size: 1.35rem;
+  }
+
+  .contact-card {
+    padding: 1.25rem;
   }
 
   .back-btn {
