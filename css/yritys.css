@@ -7,8 +7,8 @@
     rgba(15, 23, 42, 0.02) 100%
   ),
   url('../img/desktop/Kuva5.jpg');
-  background-size: cover, cover;
-  background-position: center bottom, center bottom;
+  background-size: auto, 85%;
+  background-position: center center, center center;
   background-attachment: fixed, fixed;
   background-repeat: no-repeat, no-repeat;
   min-height: 60vh;
